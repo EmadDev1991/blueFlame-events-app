@@ -1,11 +1,18 @@
-import { Schema, model, models, Document, Types } from 'mongoose'
+import { Schema, model, models, Document } from 'mongoose'
 
 export interface IOrder extends Document {
   createdAt: Date
   stripeId: string
   totalAmount: string
-  event: Types.ObjectId
-  buyer: Types.ObjectId
+  event: {
+    _id: string
+    title: string
+  }
+  buyer: {
+    _id: string
+    firstName: string
+    lastName: string
+  }
 }
 
 export type IOrderItem = {
@@ -20,7 +27,7 @@ export type IOrderItem = {
 const OrderSchema = new Schema({
   createdAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
   stripeId: {
     type: String,
