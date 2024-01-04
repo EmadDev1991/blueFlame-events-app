@@ -1,6 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
-
+import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
+import { Button } from "../ui/button";
 const Header = () => {
   return (
     <header className="w-full border-b ">
@@ -15,8 +16,12 @@ const Header = () => {
           />
         </Link>
 
-        <div>
-            auth
+        <div className="flex w-32 justify-end gap-3 items-center">
+          <Link href='/sign-in'>
+            <Button size="lg">Login</Button>
+          </Link>
+
+          <UserButton afterSignOutUrl="/" />
         </div>
       </div>
     </header>
