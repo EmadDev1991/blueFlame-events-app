@@ -9,17 +9,24 @@ import Event from '../models/event.model'
 import { handleError } from '@/lib/utils'
 
 import { CreateUserParams, UpdateUserParams } from '@/types'
+import { cache } from 'react'
+import { error } from 'console'
 
-export async function createUser(user: CreateUserParams) {
-  try {
+
+
+
+export const createUser = async(user: CreateUserParams)=>{
+  try{
     await connectToDatabase()
-
     const newUser = await User.create(user)
     return JSON.parse(JSON.stringify(newUser))
-  } catch (error) {
+  }catch(error){
     handleError(error)
   }
 }
+
+
+
 
 export async function getUserById(userId: string) {
   try {
@@ -34,6 +41,9 @@ export async function getUserById(userId: string) {
   }
 }
 
+
+
+/*
 export async function updateUser(clerkId: string, user: UpdateUserParams) {
   try {
     await connectToDatabase()
@@ -79,3 +89,5 @@ export async function deleteUser(clerkId: string) {
     handleError(error)
   }
 }
+
+*/
