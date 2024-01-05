@@ -43,8 +43,10 @@ export async function getUserById(userId: string) {
 
 
 
-/*
-export async function updateUser(clerkId: string, user: UpdateUserParams) {
+
+
+//// update user
+export const updateUser = async (clerkId: string, user: UpdateUserParams)=>{
   try {
     await connectToDatabase()
 
@@ -57,7 +59,11 @@ export async function updateUser(clerkId: string, user: UpdateUserParams) {
   }
 }
 
-export async function deleteUser(clerkId: string) {
+
+
+
+
+export const deleteUser = async (clerkId: string)=>{
   try {
     await connectToDatabase()
 
@@ -90,4 +96,3 @@ export async function deleteUser(clerkId: string) {
   }
 }
 
-*/
